@@ -6,6 +6,8 @@
         <replica>
           <host>clickhouse-shard1</host>
           <port>9000</port>
+          <user>airflow</user>
+          <password>airflow_pass</password>
         </replica>
       </shard>
       <shard>
@@ -13,6 +15,8 @@
         <replica>
           <host>clickhouse-shard2</host>
           <port>9000</port>
+          <user>airflow</user>
+          <password>airflow_pass</password>
         </replica>
       </shard>
     </my_cluster>
