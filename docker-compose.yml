@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  clickhouse-shard1:
+    image: clickhouse/clickhouse-server:24.4
+    container_name: ch-shard1
+    ports:
+      - "9001:9000"   # TCP client port
+      - "8123:8123"   # HTTP interface
+    volumes:
+      - ./shard1_data:/var/lib/clickhouse
+      - ./remote_servers.xml:/etc/clickhouse-server/config.d/remote_servers.xml
+    environment:
+      - CLICKHOUSE_USER=default
+      - CLICKHOUSE_PASSWORD=
+      - CLICKHOUSE_DB=default
+
+  clickhouse-shard2:
+    image: clickhouse/clickhouse-server:24.4
+    container_name: ch-shard2
+    ports:
+      - "9002:9000"
+      - "8124:8123"
+    volumes:
+      - ./shard2_data:/var/lib/clickhouse
+      - ./remote_servers.xml:/etc/clickhouse-server/config.d/remote_servers.xml
+    environment:
+      - CLICKHOUSE_USER=airflow
+      - CLICKHOUSE_PASSWORD=airflowpass
+      - CLICKHOUSE_DB=default
