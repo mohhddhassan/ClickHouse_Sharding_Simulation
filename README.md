@@ -1,4 +1,3 @@
-````markdown
 # ClickHouse Sharding & Weights Distribution ⚡
 
 This project demonstrates **ClickHouse sharding with weighted distribution** using Docker.  
