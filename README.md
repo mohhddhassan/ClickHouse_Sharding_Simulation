@@ -87,4 +87,3 @@ ClickHouse_Sharding_Simulation/
 This setup is intended for **learning and simulation** purposes.
 In real-world production, sharding strategies may also depend on partition keys, cluster size, and hardware capacity.
 
-```
